@@ -1,0 +1,8 @@
+html {
+  width: 800px;
+}
+#change {
+  display: inline-block;
+  width: 200px;
+  text-align: center;
+}

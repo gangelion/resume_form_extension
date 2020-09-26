@@ -1,0 +1,17 @@
+{
+  "manifest_version": 2,
+  "name": "resume_form_extension",
+  "version": "1.0.0",
+  "description": "履歴書フォームの複製のための拡張機能",
+  "permissions": ["activeTab", "declarativeContent", "storage"],
+  "web_accessible_resources": ["form.html"],
+  "background": [{
+    "matches": ["http://*/*", "https://*/*"],
+    "script": [
+      "main.js"
+    ]
+  }],
+  "browser_action": {
+    "default_popup": "form.html"
+  }
+}
