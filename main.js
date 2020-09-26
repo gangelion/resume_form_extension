@@ -1,18 +1,17 @@
-let change = document.getElementById('change');
-change.addEventListener('click', () => {
-  let name = document.getElementById('name').value;
-  let email = document.getElementById('email').value;
-  let phone = document.getElementById('phone').value;
-  if(name == '') {
-    alert('名前を入力してください');
+$('#change').on('click', () => {
+  let name = $('#name').val();
+  let email = $('#email').val();
+  let phone = $('#phone').val();
+  if (name == "") {
+    alert("名前を入力してください");
     return;
   }
-  if(email == '') {
-    alert('メールアドレスを入力してください');
+  if (email == "") {
+    alert("メールアドレスを入力してください");
     return;
   }
-  if(phone == '') {
-    alert('電話番号を入力してください');
+  if (phone == "") {
+    alert("電話番号を入力してください");
     return;
   }
   let confirm = window.confirm('登録します。よろしいですか?');
