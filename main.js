@@ -16,6 +16,9 @@ $('#change').on('click', () => {
   }
   let confirm = window.confirm('登録します。よろしいですか?');
   if(confirm) {
-    alert('名前:' + name + '\n' + 'Eメール:' + email + '\n' + '電話番号:' + phone + '\n' + 'で登録しました！');
+    localStorage['name'] = name;
+    localStorage['email'] = email;
+    localStorage['phone'] = phone;
+    // alert('名前:' + name + '\n' + 'Eメール:' + email + '\n' + '電話番号:' + phone + '\n' + 'で登録しました！');
   }
 });

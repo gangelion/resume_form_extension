@@ -3,7 +3,12 @@
   "name": "resume_form_extension",
   "version": "1.0.0",
   "description": "履歴書フォームの複製のための拡張機能",
-  "permissions": ["activeTab", "declarativeContent", "storage"],
+  "permissions": [
+    "activeTab",
+    "declarativeContent",
+    "storage",
+    "unlimitedStorage"
+  ],
   "web_accessible_resources": ["form.html"],
   "background": [{
     "matches": ["http://*/*", "https://*/*"],
