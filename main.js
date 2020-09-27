@@ -37,3 +37,15 @@ $('#fetch').on('click', () => {
     $("#phone").val(phone);
   }
 });
+
+$('#clear').on('click', () => {
+  let confirm = window.confirm('危険！登録済みのデータを消去します。よろしいですか？')
+  if(!confirm) {
+    return;
+  }
+  let reConfirm = window.confirm('危険！本当に削除しますか？この操作は取り消せません');
+  if(reConfirm) {
+    localStorage.clear();
+    alert('登録済みデータを削除しました。')
+  }
+});
