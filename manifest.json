@@ -7,14 +7,17 @@
     "activeTab",
     "declarativeContent",
     "storage",
-    "unlimitedStorage"
+    "unlimitedStorage",
+    "tabs"
   ],
   "web_accessible_resources": ["form.html"],
-  "background": [{
+  "content_scripts": [{
     "matches": ["http://*/*", "https://*/*"],
-    "script": [
-      "main.js"
-    ]
+    "js": [
+      "jquery-3.5.1.min.js",
+      "content.js"
+    ],
+    "run_at": "document_end"
   }],
   "browser_action": {
     "default_popup": "form.html"

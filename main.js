@@ -1,29 +1,28 @@
 $('#change').on('click', () => {
-  let name = $('#name').val();
-  let email = $('#email').val();
-  let phone = $('#phone').val();
-  if (name == "") {
-    alert("名前を入力してください");
+  const lastName_ex = $('#lastName_ex').val();
+  const firstName_ex = $("#firstName_ex").val();
+  if (lastName_ex === "") {
+    alert("姓を入力してください");
     return;
   }
-  if (email == "") {
-    alert("メールアドレスを入力してください");
+  if (firstName_ex === "") {
+    alert("名を入力してください");
     return;
   }
-  if (phone == "") {
-    alert("電話番号を入力してください");
-    return;
-  }
-  let confirm = window.confirm('登録します。よろしいですか?');
-  if(confirm) {
-    const STORAGE_KEY_NAME = 'name';
-    const STORAGE_KEY_EMAIL = 'email';
-    const STORAGE_KEY_PHONE = 'phone';
-    localStorage.setItem(STORAGE_KEY_NAME, name);
-    localStorage.setItem(STORAGE_KEY_EMAIL, email);
-    localStorage.setItem(STORAGE_KEY_PHONE, phone);
-    alert('名前:' + name + '\n' + 'Eメール:' + email + '\n' + '電話番号:' + phone + '\n' + 'で登録しました！');
-  }
+
+  chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+    chrome.tabs.sendMessage(
+      tabs[0].id,
+      {
+        click: 'change',
+        lastName: lastName_ex,
+        firstName: firstName_ex
+      },
+      (msg) => {
+        console.log("result message:", msg);
+      }
+    );
+  });
 });
 
 $('#fetch').on('click', () => {
